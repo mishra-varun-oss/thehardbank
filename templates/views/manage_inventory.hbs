@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="theme-color" content="#f77205" />
+		<title>manage inventory</title>
+		<link rel="stylesheet" href="/css/manage_inventory.css">
+		<link rel="stylesheet" href="/css/inventory_navbar.css">
+	</head>
+
+	<body>
+		{{> header}}
+		<div class="under_nav_container">
+			<div class="under_nav">
+				<select class="input select-input" id="category_select">
+					<option value="">Category</option>
+					<option value="ENGS">ENGS</option>
+					<option value="TECH">TECH</option>
+					<option value="LIFE">LIFE</option>
+				</select>
+				<input type="text" id="unit_input" class="input text-input" placeholder="Unit" maxlength="1">
+				<input type="text" id="shelf_input" class="input text-input" placeholder="Shelf" pattern="\d*" maxlength="1">
+				<button class="under-nav-button" id="filter_button">Filter</button>
+				<button class="under-nav-button reset" id="reset_button">Reset</button>
+			</div>
+		</div>
+		<div class="table-container">
+			<p id="table_message" style="display: none"></p>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th class="hide-mobile-view">Category</th>
+						<th>Location</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="items">
+					{{#each item}}
+					<tr class="entry_row" onclick="open_details({{{this.id}}})">
+						<td>{{this.name}}</td>
+						<td class="center-text">{{this.quantity}}</td>
+						<td class="center-text hide-mobile-view">{{this.category}}</td>
+						<td class="center-text">{{this.unit}}{{this.shelf}}</td>
+						<!--
+						<td>
+							<a class="view_link" href="/manage/inventory/view/{{{this.id}}}">View</a>
+						</td>
+						-->
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<script src="/js/inventory_navbar.js"></script>
+		<script src="/js/manage_inventory.js"></script>
+	</body>
+</html>

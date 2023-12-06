@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+		<meta name="theme-color" content="#f77205" />
+
+		<title>The Hard Bank</title>
+		<link rel="stylesheet" href="/css/inventory_navbar.css">
+		<link rel="stylesheet" href="/css/view_inventory.css">
+	</head>
+	<body>
+		{{> header}}
+		  <input id="id" value="{{{id}}}" type="hidden">
+
+		<div class="under_nav_container">
+			<div class="under_nav">
+				<a href="/manage/inventory">Back</a>
+				<a href="/manage/inventory/delete/{{{id}}}">Delete item</a>
+				<p id="message"></p>
+			</div>
+		</div>
+		<div class="content">
+			
+			<div class="image-container">
+				<input type="hidden" id="file_data" value="{{{image}}}">
+				  <div class="gallery-container">
+				    <div class="file-previews" id="filePreviews"></div>
+				    <div class="main-display">
+				      <img id="mainImage" src="" alt="Main Display">
+					<form method="post" action="/manage/inventory/update_image" enctype="multipart/form-data">
+						  <div class="custom-file-input">
+						    <input type="file" name="fileInput" id="fileInput" class="hidden-input" required/>
+						    <label for="fileInput" class="custom-button">Choose File</label>
+						    <span id="file_name" class="file-name"></span>
+							<input name="id" type="hidden" value="{{{id}}}" id="item_id">
+							<input name="replace_file" type="hidden" id="replace_file">
+							<button type="submit">Update</button>
+							<button type="button" id="add_image">Add</button>
+							<button class="delete_btn" type="button" id="delete_image">Delete</button>
+						  </div>
+					</form>
+				    </div>
+				  </div>
+			</div>
+			<div class="details">
+				<p style="margin: 0px; font-weight: bold;">ID# {{id}}</p>
+				<br>
+				<label for="name">Name</label>
+				<input class="input_field name" id="name" type="text" value="{{{name}}}" onchange="update_data(this, event)">
+				<br>
+				<label for="category">Category</label>
+				<input id="category_data" type="hidden" value="{{{category}}}">
+				<select class="input_field" id="category" onchange="update_data(this, event)">
+					<option value="ENGS">ENGS</option>
+					<option value="TECH">TECH</option>
+					<option value="LIFE">LIFE</option>
+				</select>
+				<div class="quantity">
+					<label for="quantity">Quantity</label>
+					<input class="input_field" type="number" pattern="\d*" value="{{{quantity}}}" id="quantity" onchange="update_quantity_input(event)">
+					<button class="btn" onclick="increase_quantity()">+</button>
+					<button class="btn" onclick="decrease_quantity()">-</button>
+				</div>
+				<label for="location">Location</label>
+				<input class="input_field" id="location" value="{{{location}}}" readonly="readonly">
+				<br>
+				<label for="place">Place</label>
+				<input class="input_field" id="place" value="{{{place}}}" readonly="readonly">
+				<br>
+				<div>
+					<label for="inventory_id">Unit and Shelf</label>
+					<input class="input_field loc" id="unit" type="text" value="{{{unit}}}" readonly="readonly">
+					<input class="input_field loc" id="shelf" type="text" value="{{{shelf}}}" readonly="readonly">
+					<button class="btn" id="map_control">View Map</button>
+				</div>
+<!--
+				<div id="map_container">
+					<p>Click map to view or edit Unit Shelf ID:</p>
+					<div id="button_map" class="button-grid">
+					  <div onclick="set_unit(this)" class="cell">A</div>
+					  <div onclick="set_unit(this)" class="cell">B</div>
+					  <div onclick="set_unit(this)" class="cell space-left">K</div>
+					  <div onclick="set_unit(this)" class="cell">C</div>
+					  <div onclick="set_unit(this)" class="cell">D</div>
+					  <div onclick="set_unit(this)" class="cell space-left">L</div>
+					  <div onclick="set_unit(this)" class="cell">E</div>
+					  <div onclick="set_unit(this)" class="cell">F</div>
+					  <div onclick="set_unit(this)" class="cell space-left">M</div>
+					  <div onclick="set_unit(this)" class="cell">G</div>
+					  <div onclick="set_unit(this)" class="cell">H</div>
+					  <div onclick="set_unit(this)" class="cell space-left">N</div>
+					  <div onclick="set_unit(this)" class="cell span-two horizontal">I</div>
+					  <div onclick="set_unit(this)" class="cell space-left">O</div>
+					  <div onclick="set_unit(this)" class="cell span-two horizontal">J</div>
+					</div>
+				</div>
+				<div id="modal" class="modal">
+				  <div class="modal-content">
+				    <span class="close">&times;</span>
+				    <p>Shelf</p>
+				    <div id="numbers">
+					    <div onclick="set_shelf(this)" class="number_div">0</div>
+					    <div onclick="set_shelf(this)" class="number_div">1</div>
+					    <div onclick="set_shelf(this)" class="number_div">2</div>
+					    <div onclick="set_shelf(this)" class="number_div">3</div>
+					    <div onclick="set_shelf(this)" class="number_div">4</div>
+				    </div>
+				  </div>
+				</div>
+-->
+				<div id="overlay" class="overlay"></div>
+			</div>
+		</div>
+		<script src="/js/view_inventory.js"></script>
+		<script src="/js/view_inventory_inventory_display.js"></script>
+		<script src="/js/inventory_navbar.js"></script>
+		<script src="/js/image_gallery.js"></script>
+	</body>
+</html>

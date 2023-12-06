@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Hard Bank</title>
+	</head>
+	<body>
+		<p>View Room</p>
+		<a href="/manage/logout">Logout</a>
+		<a href="/manage/office">Back</a>
+		{{#each place}}
+		<p>{{this.name}} in {{this.office}}</p>
+		{{#if this.map}}
+		<img src="/maps/{{{this.map}}}" style="height: 100px">
+		{{/if}}
+		<input type="hidden" id="place_name" value="{{{this.name}}}">
+		<form action="/manage/office/place/add_map" method="post" enctype="multipart/form-data">
+			<input type="file" name="file">
+			<input type="hidden" value="{{{this.id}}}" name="id">
+			<button type="submit">Upload Map</button>
+		</form>
+		{{/each}}
+		<table>
+			<thead>
+				<tr>
+					<th>Unit Name</th>
+					<th>Number of Shelves</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody id="units">
+				{{#each unit}}
+				<tr>
+					<td>{{this.name}}</td>
+					<td>{{this.shelf_amount}}</td>
+					<td>
+						<p style="margin: 0" onclick="view_shelf_image('{{{this.picture}}}')">View</p>
+						<div style="display: none" id="img{{{this.picture}}}">
+							<img src="/shelf_pictures/{{{this.picture}}}" style="height: 100px">
+							<button onclick="close_picture('{{{this.picture}}}')">Close</button>
+						</div>
+					</td>
+					<td>
+						<p style="margin: 0" onclick="delete_unit({{{this.id}}})">Delete</p>
+					</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td>
+						<button onclick="add_unit()">Add Room</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+		<script src="/js/view_place.js"></script>
+	</body>
+</html>
+

@@ -1,0 +1,434 @@
+@font-face {
+	font-family: 'sourcecodepro-regular';
+	src: url('/fonts/SourceCodePro-Regular.ttf') format('truetype');
+}
+body {
+	font-family: 'SourceCodePro-Regular';
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+.content {
+	display: flex;
+	justify-content: flex-start;
+	margin: 10px;
+	gap: 20px;
+	margin-top: 0px;
+}
+
+.image-container,.details {
+	width: 46%;
+}
+.details {
+	width: 40%;
+	font-size: 15px;
+}
+@media screen and (max-width: 750px) {
+	body {
+	}
+	.content {
+		flex-direction: column;
+		margin-bottom: 10px;
+	}
+	.image-container, .details {
+		width: 100%;
+	}
+	.size-width {
+		min-width: 100% !important;
+	}
+	.gallery-container {
+		flex-direction: column;
+	}
+	.file-previews {
+		flex-direction: row !important;
+		max-width: 100% !important;
+	}
+	.file-previews img {
+		width: 60px !important;
+		height: 60px !important;
+	}
+	.main-display {
+		max-width: 100% !important;
+		width: 100%;
+	}
+}
+
+.image-container img {
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+.image-container {
+	font-family: 'SourceCodePro-Regular';
+}
+.image-container form {
+	font-family: 'SourceCodePro-Regular';
+	text-align: center;
+}
+.image-container button {
+	font-size: 15px;
+	font-family: 'SourceCodePro-Regular';
+	background-color: #f77205;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+}
+.image-container button:hover {
+	background-color: #f59342;
+}
+#fileInput {
+	font-size: 15px;
+	font-family: 'SourceCodePro-Regular';
+	width: 50%;
+}
+
+.input_field {
+	font-family: 'SourceCodePro-Regular';
+	margin-bottom: 10px;
+	font-size: 15px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	color: black;
+	background-color: white;
+}
+#category {
+	background-color: white;
+	padding: 5px;
+	border-radius: 5px;
+	color: black;
+	border: 1px solid black;
+}
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.container div {
+	width: 40px;
+	height: 20px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+.cell {
+	border: 1px solid black;
+}
+
+.grid-2x1 {
+	display: grid;
+	grid-template-columns: repeat(1, 2fr);
+	grid-gap: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.grid-5x1 {
+	display: grid;
+	grid-template-columns: repeat(1, 5fr);
+	grid-gap: 10px;
+	margin-bottom: 10px;
+}
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+  .button-grid .cell {
+    background-color: #ddd;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .span-two {
+    grid-column: span 2;
+  }
+  .space-left{
+	  margin-left: 40px;
+  }
+  .horizontal {
+	  width: 80px;
+  }
+  .buttons {
+	  gap: 15px;
+	  display: flex;
+	  margin-top: 15px;
+  }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.modal-content {
+	text-align: center;
+}
+
+.label p {
+	font-size: 10px;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.loc {
+	width: 5%;
+}
+.name {
+	width: 300px;
+}
+.number_div {
+	text-align: center;
+	padding: 20px;
+	border: 1px solid black;
+	width: 50px;
+}
+#message {
+	margin: 0 10px;
+	display: inline;
+	font-weight: normal !important;
+}
+.btn {
+	font-family: 'SourceCodePro-Regular';
+	padding: 5px;
+	font-size: 15px;
+	background-color: #f77205;
+	color: white;
+	border: 1px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: #f59342;
+}
+.details label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+.under_nav_container {
+	z-index: 9999;
+	top: 0;
+	position: sticky;
+	overflow-x: hidden;
+}
+.under_nav {
+	font-weight: bold;
+	width:100%;
+	display: flex;
+	justify-content: flex-start;
+	gap: 20px;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	padding: 10px 0px;
+	padding-left: 10px;
+	z-index: 10000;
+}
+
+.under_nav a {
+	color: black;
+	text-decoration: none;
+}
+.under_nav a:hover {
+	text-decoration: underline;
+}
+.custom-file-input {
+  position: relative;
+}
+
+.hidden-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-button {
+	font-size: 15px;
+  background-color: #f77205;
+  color: white;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-name {
+  color: black;
+}
+
+/* Styles for when a file is selected */
+.hidden-input:not(:focus) + .custom-button {
+  background-color: #555;
+}
+
+.hidden-input:not(:focus) + .custom-button:hover {
+  background-color: #777;
+}
+
+.hidden-input:focus + .custom-button {
+  outline: 2px solid #4CAF50;
+}
+
+.hidden-input:valid + .file-name::after {
+  content: attr(data-file);
+  color: #000;
+}
+
+/* Hide the default file input appearance in modern browsers */
+input[type="file"] {
+  display: none;
+}
+#map_container {
+	margin-bottom: 10px;
+}
+.form-div {
+	padding-bottom: 10px;
+}
+.input_label {
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+}
+#first {
+	padding-top: 5px;
+}
+.form-btn {
+	padding: 0 5px;
+	font-size: 15px;
+	font-family: 'SourceCodePro-Regular';
+	color: white;
+	background-color: #f77205;
+	border: 1px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.size-width {
+	min-width: 60%;
+}
+.graphics {
+	display: flex;
+}
+.graphics p {
+	font-size: 15px;
+}
+.location_label {
+	min-width: 200px;
+}
+
+#previewContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 15px;
+  overflow-x: scroll;
+}
+
+.previewImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+#progressBarContainer {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+  display: none;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #f77205;
+}
+
+#progressBar {
+  width: 0%;
+  height: 20px;
+  border-radius: 5px;
+  background-color: white;
+  max-width: 50%;
+}
+.gallery-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.main-display {
+  flex: 1;
+  max-width: 70%;
+}
+
+.main-display img {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+}
+
+.file-previews {
+  flex: 1;
+  max-width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  overflow: scroll;
+}
+
+.file-previews img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.file-previews img:hover {
+  border-color: #f77205;
+}
+.delete_btn {
+	background-color: white !important;
+	color: black !important;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-family: 'SourceCodePro-Regular';
+	font-size: 15px;
+}

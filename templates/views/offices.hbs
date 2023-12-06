@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Offices</title>
+	</head>
+	<body>
+		<p>Offices</p>
+		<a href="/manage/logout">Logout</a>
+		<a href="/manage/office/add">Add</a>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Address</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each office}}
+				<tr>
+					<td>{{this.name}}</td>
+					<td>{{this.street}} {{this.city}}, {{this.state}} {{this.postal_code}}</td>
+					<td>
+						<a href="/manage/office/view/{{{this.id}}}">View</a>
+					</td>
+					<td>
+						<a href="/manage/office/delete/{{{this.id}}}">Delete</a>
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</body>
+</html>

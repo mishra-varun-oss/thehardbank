@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Offices</title>
+	</head>
+
+	<body>
+		<p>Add office</p>
+		<a href="/manage/logout">Logout</a>
+		<a href="/manage/office">Back</a>
+		<form action="/manage/office/add" method="post" enctype="multipart/form-data">
+			<input type="text" name="name" placeholder="Office name">
+			<br>
+			<input type="text" name="street" placeholder="Street Address">
+			<br>
+			<input type="text" name="city" placeholder="City">
+			<br>
+			<input type="text" name="state" placeholder="State">
+			<br>
+			<input type="text" name="postal_code" placeholder="Zip Code">
+			<br>
+			<input type="file" name="map_upload" multiple>
+			<br>
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
+

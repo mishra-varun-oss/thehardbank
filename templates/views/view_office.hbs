@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Offices</title>
+	</head>
+
+	<body>
+		<p>View office</p>
+		<a href="/manage/logout">Logout</a>
+		<a href="/manage/office">Back</a>
+
+		<div id="maps"></div>
+
+		<form action="/manage/office/view" method="post">
+			<input type="hidden" name="id" id="id" value="{{{id}}}">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" value="{{{name}}}">
+			<br>
+			<label for="street">Street</label>
+			<input type="text" name="street" id="street" value="{{{street}}}">
+			<br>
+			<label for="city">City</label>
+			<input type="text" id="city" name="city" value="{{{city}}}">
+			<br>
+			<label for="state">State</label>
+			<input type="text" id="state" name="state" value="{{{state}}}">
+			<br>
+			<label for="postal_code">Postal Code</label>
+			<input type="text" id="postal_code" name="postal_code" value="{{{postal_code}}}">
+			<br>
+			<button type="submit">Save</button>
+		</form>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Room Name</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody id="places">
+				{{#each place}}
+				<tr>
+					<td>{{this.name}}</td>
+					<td>
+						<a href="/manage/office/place/{{{this.id}}}">View</a>
+					</td>
+					<td>
+						<a onclick="delete_place({{{this.id}}})">Delete</a>
+					</td>
+				</tr>
+				{{/each}}
+				<tr>
+					<td>
+						<button onclick="add_room()">Add Room</button>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>	
+
+		<script src="/js/view_office.js"></script>
+	</body>
+</html>
+

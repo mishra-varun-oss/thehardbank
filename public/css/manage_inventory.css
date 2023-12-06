@@ -1,0 +1,94 @@
+@font-face {
+	font-family: 'SourceCodePro-Regular';
+	src: url('/fonts/SourceCodePro-Regular.ttf') format('truetype');
+}
+@media only screen and (max-width: 768px) {
+	.hide-mobile-view {
+		display: none !important;
+	}
+
+}
+body {
+	font-family: 'SourceCodePro-Regular';
+	margin: 0;
+	height: 100%;
+}
+.table-container {
+	margin: 0px 10px;
+	margin-bottom: 15px;
+	font-size: 15px;
+}
+.center-text {
+	text-align: center;
+}
+.table-container th {
+	padding: 0 10px;
+}
+.table-container tr {
+	margin: 10px 0px;
+}
+.hide-mobile-view {
+	display: table-cell;
+}
+.table-container td {
+	padding-bottom: 15px;
+}
+.under_nav_container {
+	z-index: 9999;
+	top: 0;
+	position: sticky;
+	overflow-x: hidden;
+}
+.under_nav {
+	font-weight: bold;
+	width:100%;
+	display: flex;
+	justify-content: flex-start;
+	gap: 7.5px;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	padding: 10px 0px;
+	padding-left: 10px;
+	z-index: 10000;
+}
+
+.under_nav a {
+	color: black;
+	text-decoration: none;
+}
+.under_nav a:hover {
+	text-decoration: underline;
+}
+.input {
+	font-family: 'SourceCodePro-Regular';
+	font-size: 15px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+.text-input {
+	width: 12%;
+}
+.select-input {
+	background-color: white;
+	color: black;
+}
+.under-nav-button {
+	font-size: 15px;	
+	border: 1px solid black;
+	border-radius: 5px;
+	font-family: 'SourceCodePro-Regular';
+	color: white;
+	background-color: #f77205;
+	cursor: pointer;
+	padding: 1px 2px;
+}
+.reset {
+	display: none;
+}
+.entry_row {
+	cursor: pointer;
+}
+.entry_row:hover {
+	background-color: #e1e3e1;
+}

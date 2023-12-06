@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="theme-color" content="#f77205" />
+
+		<title>The Hard Bank</title>
+		<link rel="stylesheet" href="/css/add_inventory.css">
+		<link rel="stylesheet" href="/css/inventory_navbar.css">
+		<link rel="stylesheet" href="/css/view_inventory.css">
+	</head>
+	<body>
+		{{> header}}
+
+		<div class="form-container">
+			<form id="myForm" action="/manage/inventory/add" method="post" enctype="multipart/form-data">
+				<div id="first">
+					
+					<div class="custom-file-input form-div">
+						<input multiple type="file" id="fileInput" class="hidden-input" name="fileInput" required>
+						<label for="fileInput" id="image_label" class="custom-button">Select Images</label>
+						<p id="form_message"></p>
+						<div id="previewContainer"></div>
+					</div>
+					<div class="form-div">
+						<label class="input_label" for="nameInput">Name:</label>
+						<input class="input_field name" type="text" id="nameInput" name="nameInput" required>
+					</div>
+					<div class="form-div">
+						<label class="input_label" for="quantityInput">Quantity:</label>
+						<input class="input_field" type="number" id="quantityInput" name="quantityInput" required>
+					</div>
+					<div class="form-div">
+						<label class="input_label" for="categorySelect">Category:</label>
+						<select id="categorySelect" class="input_field" name="categorySelect" required>
+							<option value="">Select category</option>
+							<option value="ENGS">ENGS</option>
+							<option value="TECH">TECH</option>
+							<option value="LIFE">LIFE</option>
+						</select>
+					</div>
+					<button class="form-btn" type="button" onclick="flip_section(1)">Next</button>
+				</div>
+		
+				<div id="second">
+					<div class="form-div">
+						<label class="input_label" for="officeSelect">Office:</label>
+						<select id="officeSelect" class="input_field" name="office" required>
+							<option value=''>Select Office</option>
+							{{#each office}}
+								<option value="{{{this.name}}}">{{this.name}}</option>
+							{{/each}}
+						</select>
+					</div>
+					<div class="form-div">
+						<label class="input_label" for="placeSelect">Place:</label>
+						<select id="placeSelect" class="input_field" name="place">
+							<option value=''>Select Place</option>
+						</select>
+					</div>
+					<div class="form-div">
+						<label class="input_label" for="unitSelect">Unit:</label>
+						<select id="unitSelect" class="input_field" name="unit">
+							<option value=''>Select Unit</option>
+						</select>
+					</div>
+					<div class="form-div">
+						<label class="input_label" for="shelfSelect">Shelf:</label>
+						<select id="shelfSelect" class="input_field" name="shelf">
+							<option value=''>Select Shelf</option>
+						</select>
+					</div>
+					<div class="buttons">
+						<button class="form-btn" type="button" onclick="flip_section(2)">Back</button>
+						<button class="form-btn" type="submit">Submit</button>
+					</div>
+<!--
+					<input type="hidden" name="unit" id="unit">
+					<input type="hidden" name="shelf" id="shelf">
+					<div class="container">
+						<p>Select Location ID using map:</p>
+						<div class="button-grid size-width">
+						  <div onclick="set_unit(this)" class="cell">A</div>
+						  <div onclick="set_unit(this)" class="cell">B</div>
+						  <div onclick="set_unit(this)" class="cell space-left">K</div>
+						  <div onclick="set_unit(this)" class="cell">C</div>
+						  <div onclick="set_unit(this)" class="cell">D</div>
+						  <div onclick="set_unit(this)" class="cell space-left">L</div>
+						  <div onclick="set_unit(this)" class="cell">E</div>
+						  <div onclick="set_unit(this)" class="cell">F</div>
+						  <div onclick="set_unit(this)" class="cell space-left">M</div>
+						  <div onclick="set_unit(this)" class="cell">G</div>
+						  <div onclick="set_unit(this)" class="cell">H</div>
+						  <div onclick="set_unit(this)" class="cell space-left">N</div>
+						  <div onclick="set_unit(this)" class="cell span-two horizontal">I</div>
+						  <div onclick="set_unit(this)" class="cell space-left">O</div>
+						  <div onclick="set_unit(this)" class="cell span-two horizontal">J</div>
+						</div>
+						<div class="graphics">
+							<p class="location_label">Selected Location ID:</p>
+							<p id="unit_graphic"></p>
+							<p id="shelf_graphic"></p>
+						</div>
+						<div class="buttons">
+							<button class="form-btn" type="button" onclick="flip_section(2)">Back</button>
+							<button class="form-btn" type="submit">Submit</button>
+						</div>
+					</div>
+-->
+				</div>
+				<div id="modal" class="modal">
+				  <div class="modal-content">
+				    <span class="close">&times;</span>
+				    <p>Select Shelf</p>
+				    <div onclick="set_shelf(this)" class="number_div">0</div>
+				    <div onclick="set_shelf(this)" class="number_div">1</div>
+				    <div onclick="set_shelf(this)" class="number_div">2</div>
+				    <div onclick="set_shelf(this)" class="number_div">3</div>
+				    <div onclick="set_shelf(this)" class="number_div">4</div>
+				  </div>
+				</div>
+
+				<div id="overlay" class="overlay"></div>
+			</form>
+			  <div id="progressBarContainer">
+			    <div id="progressBar"></div>
+			  </div>
+		</div>
+		<script src="/js/add_inventory.js"></script>
+		<script src="/js/inventory_navbar.js"></script>
+		<script src="/js/image_upload.js"></script>
+	</body>
+</html>
